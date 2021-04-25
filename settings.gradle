@@ -1,0 +1,4 @@
+rootProject.name = 'disable-spring-cloud-aws'
+
+include 'spring-cloud-aws'
+include 'spring-cloud-aws-legacy'

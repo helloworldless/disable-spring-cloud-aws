@@ -1,0 +1,37 @@
+plugins {
+	id 'org.springframework.boot' version '2.3.10.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+}
+
+group = 'com.davidagood'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+	mavenCentral()
+}
+
+ext {
+	lombokVersion = '1.18.20'
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter'
+
+	// Including Spring Web dependency as a workaround for this issue
+	// java.lang.NoClassDefFoundError: org.springframework.http.converter.json.Jackson2ObjectMapperBuilder
+	// https://github.com/spring-cloud/spring-cloud-aws/issues/540
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+
+	implementation 'org.springframework.cloud:spring-cloud-starter-aws-messaging:2.2.6.RELEASE'
+
+	compileOnly "org.projectlombok:lombok:${lombokVersion}"
+	annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+test {
+	useJUnitPlatform()
+}

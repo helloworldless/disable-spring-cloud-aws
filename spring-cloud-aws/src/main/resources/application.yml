@@ -1,0 +1,41 @@
+cloud:
+  aws:
+    stack:
+      auto: false
+    region:
+      # Use this to get the region from the Default Region Provider Chain
+      # https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/java-dg-region-selection.html#default-region-provider-chain
+      auto: true
+      use-default-aws-region-chain: true
+      # Use this if you want to set the region manually
+      # auto: false
+      # static: us-east-1
+    credentials:
+      # Use this to get the credentials from the Default Credential Provider Chain
+      # https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/credentials.html#credentials-default
+      use-default-aws-credentials-chain: true
+      # Use this if you want to set the credentials manually
+      # access-key:
+      # secret-key:
+
+logging:
+  level:
+    io.awspring.cloud: debug
+    # Ignore scary but innocuous warnings from these AWS dependencies as recommended in the Spring Cloud AWS Reference Docs
+    com.amazonaws.util.EC2MetadataUtils: error
+    com.amazonaws.internal.InstanceMetadataServiceResourceFetcher: error
+
+
+app:
+  sqs-queue-name: test-queue
+
+---
+spring:
+  config:
+    activate:
+      on-profile: local
+
+cloud:
+  aws:
+    sqs:
+      enabled: false

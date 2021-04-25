@@ -1,0 +1,37 @@
+app:
+  sqs-queue-name: dummy-queue
+
+---
+spring:
+  config:
+    activate:
+      on-profile: test
+
+cloud:
+  aws:
+    sqs:
+      enabled: false
+    # If you have an AWS region configured anywhere in the Default Region Provider Chain, you can remove this
+    region:
+      static: us-east-1
+
+# For a more heavy-handed approach, you can explore excluding auto-configuration like this...
+#spring:
+#  autoconfigure:
+#    exclude:
+#      - io.awspring.cloud.autoconfigure.context.ContextRegionProviderAutoConfiguration
+
+---
+spring:
+  config:
+    activate:
+      on-profile: test-alt
+
+cloud:
+  aws:
+    stack:
+      auto: false
+    region:
+      static: us-east-1
+
+

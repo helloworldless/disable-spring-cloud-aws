@@ -1,0 +1,23 @@
+app:
+  sqs-queue-name: dummy-queue
+
+---
+spring:
+  profiles: test
+  autoconfigure:
+    exclude:
+      - org.springframework.cloud.aws.autoconfigure.messaging.MessagingAutoConfiguration
+      - org.springframework.cloud.aws.autoconfigure.context.ContextCredentialsAutoConfiguration
+      - org.springframework.cloud.aws.autoconfigure.context.ContextRegionProviderAutoConfiguration
+      - org.springframework.cloud.aws.autoconfigure.context.ContextStackAutoConfiguration
+
+---
+spring:
+  profiles: test-alt
+
+cloud:
+  aws:
+    stack:
+      auto: false
+    region:
+      static: us-east-1
