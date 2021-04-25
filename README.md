@@ -47,3 +47,8 @@ App  : Received message: Message(city=Anchorage, state=AK)
 ## Disabling for Testing with @SpringBootTest
 
 See `@SpringBootTest`s in the `src/test/java` directory of each module.
+
+
+## References
+
+- The properties like `cloud.aws.messaging.enabled` were added in [this PR](https://github.com/spring-cloud/spring-cloud-aws/pull/582). Note that this configuration was later changed [here](https://github.com/spring-cloud/spring-cloud-aws/commit/cd9f7167ef2474c9b2e5e1c8897978526b8f1219#diff-d42a6da0b8a3c56405c8ba74155c3f5ea62776a795d9b587f758a3843010248b) so that the new property would be `cloud.aws.sqs.enabled` or `cloud.aws.sns.enabled`.
