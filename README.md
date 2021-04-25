@@ -1,5 +1,7 @@
 # How to Disable Spring Cloud AWS
 
+_See associated blog post [here](https://davidagood.com/disable-spring-cloud-aws/)._
+
 This project contains two modules which do exactly the same thing with 
 different versions of the Spring Cloud AWS library.
 
@@ -20,7 +22,7 @@ between the two Spring Cloud AWS libraries is explained really well
 
 ### Pre-Requisites
 
-- AWS Region and Credentials configured
+- AWS Region and Credentials configured via Default Provider Chains
 - Create an AWS SQS queue with the name `test-queue`, or use whatever name you want and 
   update the queue name in `app.sqs-queue-name` in `src/main/resources/application.yml`
 
